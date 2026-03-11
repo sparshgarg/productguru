@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
     const apiKey = process.env.GEMINI_API_KEY || env.GEMINI_API_KEY || '';
     
     return {
-      base: '/productguru.github.io/',
+      base: '/productguru/',
       server: {
         port: 3000,
         host: '0.0.0.0',
