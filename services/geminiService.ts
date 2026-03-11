@@ -9,7 +9,7 @@ if (!apiKey) {
 }
 const ai = new GoogleGenAI({ apiKey });
 
-const MODEL_NAME = "gemini-2.5-flash-preview-04-17";
+const MODEL_NAME = "gemini-2.5-flash";
 
 const ASKED_KEY = "pg_asked_question_indices";
 
