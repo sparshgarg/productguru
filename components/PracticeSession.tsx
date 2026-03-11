@@ -24,7 +24,8 @@ const ResultsView: React.FC<{
   ];
 
   const [activeSample, setActiveSample] = useState<'AI Junior PM' | 'AI Senior PM' | 'AI World-Class PM'>('AI Senior PM');
-  const currentSample = result.sampleAnswers.find(s => s.level === activeSample) || result.sampleAnswers[0];
+  const hasSamples = result.sampleAnswers && result.sampleAnswers.length > 0;
+  const currentSample = hasSamples ? (result.sampleAnswers.find(s => s.level === activeSample) || result.sampleAnswers[0]) : null;
 
   const handleShare = async () => {
     try {
@@ -79,6 +80,7 @@ const ResultsView: React.FC<{
       </div>
 
       {/* Sample Answers Comparison */}
+      {hasSamples && currentSample && (
       <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-slate-200 dark:border-gray-800 overflow-hidden">
         <div className="bg-slate-50 dark:bg-gray-800 px-6 py-4 border-b border-slate-200 dark:border-gray-700 flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
@@ -115,6 +117,7 @@ const ResultsView: React.FC<{
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };
